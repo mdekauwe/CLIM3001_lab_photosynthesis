@@ -30,3 +30,4 @@ To run the practical:
 3. You will have to knit the [Rmd](CLIM3001_lab.Rmd) file to generate the practical instructions. To do so, open the [Rmd](CLIM3001_lab.Rmd) file and click the knit icon.
 
 
+<img src="data/knit.png" width="50%">.
