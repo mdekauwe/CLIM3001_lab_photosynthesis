@@ -1,0 +1,13 @@
+.Rproj.user
+.Rhistory
+.RData
+.DS_Store
+*.pdf
+*.html
+plots/*
+*.log
+*.tex
+*.knit.md
+*.utf8.md
+python/__pycache__/*
+.ipynb_checkpoints/*
