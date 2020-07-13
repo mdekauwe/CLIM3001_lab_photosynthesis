@@ -609,22 +609,20 @@ ggplot(df, aes(day)) +
 
 **Q. Why does the LUE have a much stronger seasonality? What assumption do you think drive this? **
 
-**Q. Can you test what you think the cause is by adjusting the LUE equation?**
 
 ***
 
-## Response to global change
+## Summary questions
 
-The plots you've made should have given you some insight into how photosynthesis will respond to changes in temperature and [CO~2~]. This is very powerful as it means you should now have a sense of what a climate model will simulate will happen to GPP in the future.
+The lab should should have given you some insight into how photosynthesis will respond to global change drivers (e.g. temperature). With these insights can you answer the following:  
 
-**Q. Given your new insights, what do you predict will happen to carbon uptake if [CO~2~] keeps increasing?**
+**Q. Can you highlight one of the causes of the poor prediction from the light-use efficiency model? What could you adjust to improve the model prediction?**
 
-**Q. What will happen in response to increasing temperature?**
+**Q. What do you predict will happen to the future land carbon sink (uptake) if [CO~2~] keeps increasing?**
 
-You can probably also make an informed guess about some of the factors that we haven't accounted for in this model.
+**Q. How will this predictions be affected by increasing temperature?**
 
-**Q. What does the photosynthesis model predict happens in a drought? **
+**Q. Can you think of at one important factor you didn't account for in your modelling? How would it change predictions?**
 
-**Q. The model predicts and instantaneous response to temperature but what about acclimation to temperature? **
 
 # References
