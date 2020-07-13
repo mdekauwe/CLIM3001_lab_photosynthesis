@@ -83,7 +83,7 @@ The Eav/Eaj parameters give the exponential increase of the function below the o
 **Q. Can you work out what parameter values you used?**
 
 Answer:
-```{r, include=FALSE}
+```{r, include=TRUE}
 print(c(p$Vcmax25, p$Eav, p$deltaSv, p$Hdv))
 print(c(p$Jmax25, p$Eaj, p$deltaSj, p$Hdj))
 ```
@@ -114,7 +114,7 @@ By default, the Australian land surface model assumes the parameter values are E
 **Q. Can you now tweak these values and explore how this changes the photosynthetic response to temperature? What are the implications of what you have plotted?**
 
 Answer:
-```{r, include=FALSE}
+```{r, include=TRUE}
 
 eav_cable <- 73637.0
 deltaSv_cable <- 486.0
@@ -147,7 +147,7 @@ ggplot(df, aes(Tleaf-DEG_2_KELVIN)) +
 **Q. Now that you've seen how to call the functions to calculate V~cmax~ and J~max~, can you look in the code (R/photosynthesis.R) and also plot $\Gamma$$^{*}$, K~c~ and K~o~ as a function of temperature?**
 
 Answer:
-```{r, include=FALSE}
+```{r, include=TRUE}
 Kc <- arrh(p$Kc25, p$Ec, Tleaf)
 Ko <- arrh(p$Ko25, p$Eo, Tleaf)
 gamma_star <- arrh(p$gamstar25, p$Eag, Tleaf)
@@ -218,7 +218,7 @@ depends on the rate at which the light reactions generate ATP and NADPH; this pr
 **Q. Can you increase and decrease the intercellular concentration of the O~2~ parameter (O~i~) and plot the impact. Does your plot fit with what I wrote above?**
 
 Answer:
-```{r, include=FALSE}
+```{r, include=TRUE}
 Tleaf <- seq(0, 50.0, 0.5) + DEG_2_KELVIN
 PAR <- 1800.0
 Cs <- 400.0
@@ -265,7 +265,7 @@ At low PAR, A is RUBP regeneration-limited due to the low rates of electron tran
 
 Answer:
 
-```{r, include=FALSE}
+```{r, include=TRUE}
 Tleaf <- 25.0 + DEG_2_KELVIN
 PAR <- seq(0, 2000.0, 0.5)
 Cs <- 400.0
@@ -307,7 +307,7 @@ At low [CO~2~] concentrations, photosynthesis is Rubisco-limited except for when
 **Q. Can you vary [CO~2~] and plot the response of A?**
 
 Answer:
-```{r, include=FALSE}
+```{r, include=TRUE}
 Tleaf <- 25.0 + DEG_2_KELVIN
 PAR <- 1800.0
 Cs <- seq(100., 1000, 0.5)
@@ -389,7 +389,7 @@ SWdown <- ncvar_get(f, "SWdown")
 **Q. Can you get also get the wind and precipitation variables?**
 
 Answer:
-```{r, include=FALSE}
+```{r, include=TRUE}
 wind <- ncvar_get(f, "Wind")
 precip <- ncvar_get(f, "Precip")
 ```
@@ -404,7 +404,7 @@ It is a good idea to make a sanity plot at this point, garbage into a model lead
 **Q. Can you plot Tair for the first year (the timestep of the data is 30 mins)?**
 
 Answer:
-```{r, include=FALSE}
+```{r, include=TRUE}
 
 # Just plot the first year
 #df <- data.frame(time[1:(48*365)], Tair[1:(48*365)] - DEG_2_KELVIN)
@@ -460,7 +460,7 @@ df_day <- df %>%
 **Q. Can you plot the model output?**
 
 Answer:
-```{r, include=FALSE}
+```{r, include=TRUE}
 ggplot(df_day, aes(day, GPP)) +
   geom_line() +
   xlab('Time') +
@@ -474,7 +474,7 @@ OK we've now modelled some GPP based on real data, it is time to see how sensibl
 **Q. Can you use the previous logic to load the flux file and extract the GPP variable and make a dataframe?**
 
 Answer:
-```{r, include=FALSE}
+```{r, include=TRUE}
 fname <- "data/FR-Pue_2002-2003_FLUXNET2015_Flux.nc"
 f <- nc_open(fname)
 GPP_obs <- ncvar_get(f, "GPP")
@@ -486,7 +486,7 @@ df_obs <- data.frame(time, GPP_obs)
 **Q. Can you turn the observation data into daily data? And plot the OBS and the model?**
 
 Answer:
-```{r, include=FALSE}
+```{r, include=TRUE}
 # Let's use the dplyr lib to aggregate to daily data
 df_obs_day <- df_obs %>%
   mutate(day=as.Date(time, format="%Y-%m-%d")) %>%
@@ -548,7 +548,7 @@ df_par <- df %>%
 **Q. Can you do the same for vpd and Tair, taking the mean instead?**
 
 Answer:
-```{r, include=FALSE}
+```{r, include=TRUE}
 df <- data.frame(time, vpd, Tair)
 colnames(df)<- c("time", "vpd", "Tair")
 
@@ -563,7 +563,7 @@ df_vpd_tair <- df %>%
 **Q. Can you merge par, tair and tair into one dataframe?**
 
 Answer
-```{r, include=FALSE}
+```{r, include=TRUE}
 df <- merge(df_par, df_vpd_tair, by="day")
 colnames(df)<- c("day", "PAR", "vpd", "Tair")
 #plot(df$PAR)
@@ -591,7 +591,7 @@ colnames(df)<- c("day",  "GPP_mod", "GPP_obs", "GPP_lue")
 **Q. Can you plot the OBS, farquhar model result and the LUE model on one plot?**
 
 Answer:
-```{r, include=FALSE}
+```{r, include=TRUE}
 ggplot(df, aes(day)) +
   geom_line(aes(y=GPP_obs, colour="OBS"), size=1.0) +
   geom_line(aes(y=GPP_mod, colour="MOD - Farq"), size=1.0) +
@@ -614,7 +614,7 @@ ggplot(df, aes(day)) +
 
 ## Summary questions
 
-The lab should should have given you some insight into how photosynthesis will respond to global change drivers (e.g. temperature). With these insights can you answer the following:  
+The lab should should have given you some insight into how photosynthesis will respond to global change drivers (e.g. temperature). With these insights can you answer the following:
 
 **Q. Can you highlight one of the causes of the poor prediction from the light-use efficiency model? What could you adjust to improve the model prediction?**
 
