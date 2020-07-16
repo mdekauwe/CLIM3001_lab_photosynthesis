@@ -4,7 +4,7 @@
 
 ## Lab: Modelling the photosynthetic response to environmental conditions
 
-### 13:00 pm - 15:00 pm, 14th July, 2019 (T2)
+### 10:00 am - 12:00 pm, 17th July, 2019 (T2)
 
 In this lab we are going to explore the C~3~ leaf-level photosynthesis model proposed by Farquhar et al. (1980) and use this to simulate photosynthesis at leaf, ecosystem and global scale
 
